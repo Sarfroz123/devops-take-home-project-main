@@ -22,9 +22,9 @@ module "public_subnet" {
   version = "3.0.0"
 
   vpc_id                  = aws_vpc.main.id
-  cidr_block              = cidrsubnet(var.vpc_cidr, 4, 0)  // Example: if VPC CIDR is 192.170.0.0/20, this will create a /24 subnet within it
+  cidr_block              = cidrsubnet(var.vpc_cidr, 4, 0)
   map_public_ip_on_launch = true
-  availability_zone       = var.aws_region  // Using the region as the availability zone for simplicity, adjust as needed
+  availability_zone       = var.aws_region
 
   tags = module.base_label.tags
 }
@@ -34,9 +34,8 @@ module "private_subnet" {
   version = "3.0.0"
 
   vpc_id                  = aws_vpc.main.id
-  cidr_block              = cidrsubnet(var.vpc_cidr, 4, 1)  // Example: if VPC CIDR is 192.170.0.0/20, this will create another /24 subnet within it
+  cidr_block              = cidrsubnet(var.vpc_cidr, 4, 1)
   map_public_ip_on_launch = false
-  availability_zone       = var.aws_region  // Using the region as the availability zone for simplicity, adjust as needed
-
+  availability_zone       = var.aws_region
   tags = module.base_label.tags
 }
