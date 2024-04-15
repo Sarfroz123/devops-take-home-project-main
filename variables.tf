@@ -1,7 +1,7 @@
 variable "aws_region" {
   description = "AWS region to use"
   type        = string
-  default     = "us-west-1"
+  default     = "us-west-1b"
 }
 
 variable "aws_access_key" {
